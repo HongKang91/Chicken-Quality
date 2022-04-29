@@ -1,0 +1,34 @@
+function generateYourChicken(chick) {
+    return Math.floor(Math.random() * chick)
+}
+
+const chickenQuality = {
+    chickenHealth: ['healthy', 'unhealthy', 'nutricious', 'fat'],
+    chickenTaste: ['tasty', 'tender', 'horrible', 'juicy'],
+    chickenRecommendation: ['eat this chicken', 'not eat this chicken', 'try this chicken', 'feast on this chicken']
+}; 
+
+let chickenTender = []
+for(let prop in chickenQuality){
+    let theChickenNator = generateYourChicken(chickenQuality[prop].length)
+
+    switch(prop){
+        case 'chickenHealth': 
+        chickenTender.push(`The chicken you ordered is "${chickenQuality[prop][theChickenNator]}".`)
+        break;
+        case 'chickenTaste':
+        chickenTender.push(`This chicken tastes and feels "${chickenQuality[prop][theChickenNator]}".`)
+        break;
+        case 'chickenRecommendation':
+        chickenTender.push(`I suggest that you should "${chickenQuality[prop][theChickenNator]}".`)
+
+    }
+        
+}
+
+function chickenizeIt(eggs){
+    const chickened = chickenTender.join('\n')
+    console.log(chickened)
+}
+
+chickenizeIt(chickenTender);
